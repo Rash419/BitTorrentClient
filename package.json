@@ -1,0 +1,14 @@
+{
+  "name": "ownbittorrentclient",
+  "version": "1.0.0",
+  "description": "bittorrent client",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Rash419",
+  "license": "ISC",
+  "dependencies": {
+    "bencode": "^2.0.1"
+  }
+}
