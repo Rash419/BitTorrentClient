@@ -9,6 +9,8 @@
   "author": "Rash419",
   "license": "ISC",
   "dependencies": {
-    "bencode": "^2.0.1"
+    "bencode": "^2.0.1",
+    "bignum": "^0.13.1",
+    "cli-progress": "^3.8.2"
   }
 }
