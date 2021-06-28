@@ -20,7 +20,7 @@ function download(peer, torrent, pieces, file) {
     const queue = new Queue(torrent);
     const socket = new net.Socket();
     socket.on('error', err => {
-        console.log(err);
+        //console.log(err);
     });
 
     socket.connect(peer.port, peer.ip.replace(/,/g, '.'), () => {
@@ -33,7 +33,7 @@ function download(peer, torrent, pieces, file) {
 function msgHandler(msg, socket, pieces, queue, torrent, file) {
     if (isHandshake(msg)) {
         socket.write(message.buildInterested());
-        console.log('Interested request has been sent');
+        //console.log('Interested request has been sent');
     } else {
         const m = message.parse(msg);
         if (m.id === 0) chokeHandler(socket);
@@ -65,12 +65,12 @@ function pieceHandler(socket, pieces, queue, torrent, file, pieceResp) {
     } else {
         requestPiece(socket, pieces, queue);
     }
-    /*if (!firstPiece) {
+    if (!firstPiece) {
         progressBar.startProgressBar(pieces.getTotalBlocks());
         firstPiece = true;
     } else {
         progressBar.updateProgressBar(pieces.getDownloadedBlocks());
-    }*/
+    }
 }
 function chokeHandler(socket) {
     socket.end();
